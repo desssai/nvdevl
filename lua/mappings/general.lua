@@ -18,8 +18,8 @@ local mappings = {
     ["<Esc>"] = { ":noh <CR>", "Clear search highlights" },
 
     -- Go to  beginning and end
-    ["<C-s>"] = { "<ESC>^i", "Beginning of line" },
-    ["<C-e>"] = { "<End>", "End of line" },
+    ["<C-a>"] = { "<ESC>^i", "Beginning of line" },
+    ["<C-e>"] = { "<End>i", "End of line" },
 
     -- Switch Between Windows
     ["<leader>h"] = { "<C-w>h", "Window left" },
