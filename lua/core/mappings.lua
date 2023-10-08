@@ -6,7 +6,7 @@ M.set = function(plugin, buffer)
 
     for mode, mode_values in pairs(mappings) do
       for keybind, mapping_info in pairs(mode_values) do
-        
+
         local opts = mapping_info.opts or {}
         opts.desc = mapping_info[2]
         opts.buffer = buffer

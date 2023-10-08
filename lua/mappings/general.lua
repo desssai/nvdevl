@@ -1,5 +1,5 @@
-local General = {
-  
+local mappings = {
+
   i = {
     -- Go to  beginning and end
     ["<C-s>"] = { "<ESC>^i", "Beginning of line" },
@@ -26,10 +26,10 @@ local General = {
     ["<leader>l"] = { "<C-w>l", "Window right" },
     ["<leader>j"] = { "<C-w>j", "Window down" },
     ["<leader>k"] = { "<C-w>k", "Window up" },
-    
+
     -- File save, save & quit, copy
     ["<C-w>"] = { "<cmd> w <CR>", "Save file" },
-    ["<C-q>"] = { "<cmd> q <CR>", "Save file" },
+    ["<C-q>"] = { "<cmd> q! <CR>", "Save file" },
     ["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
 
     -- Toggle Line Numbers
@@ -66,4 +66,4 @@ local General = {
 
 }
 
-return General
+return mappings

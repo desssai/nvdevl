@@ -2,7 +2,7 @@ local plugin = {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufRead", "BufWinEnter", "BufNewFile" },
   config = function()
-    require("ibl").setup {
+    require "ibl".setup {
       enabled = true,
       debounce = 100, -- Set the amount of refreshed in ms
       indent = {

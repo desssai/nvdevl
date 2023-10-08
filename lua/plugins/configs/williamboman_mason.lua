@@ -11,7 +11,7 @@ local ensure_installed = {
   "css-lsp", -- CSS LSP
   "html-lsp", -- HTML LSP
   "typescript-language-server", -- TS & JS LSP
-  
+
   -- FORMATTING
   -- "clang-format", -- C, C++ Formatting
   "stylua", -- Lua Formatting
@@ -21,7 +21,7 @@ local ensure_installed = {
   -- "djlint", -- Go & HTML Templates Formatting
   "prettier", -- HTML, CSS, JS Formatting
   "sqlfmt", -- SQL Formatting
-  
+
   -- DEBUGGINF
   -- "codelldb", -- C, C++ Debugger
 }
@@ -37,11 +37,7 @@ local plugin = {
     "MasonUninstallAll",
   },
   config = function()
-    require("mason").setup {
-      ensure_installed = ensure_installed,
-
-      PATH = "skip",
-
+    require "mason".setup {
       ui = {
         icons = {
           package_pending = " ",

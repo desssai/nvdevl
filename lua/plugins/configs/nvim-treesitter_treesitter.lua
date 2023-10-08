@@ -3,8 +3,8 @@ local plugin = {
   build = ":TSUpdate",
   cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
   event = { "BufRead", "BufWinEnter", "BufNewFile" },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup {
+  config = function()
+    require "nvim-treesitter.configs".setup {
       ensure_installed = {
         "c", -- Mandatory TS package
         "lua", -- Mandatory TS package
@@ -31,7 +31,7 @@ local plugin = {
         enable = true,
         use_languagetree = true,
       },
-      
+
       indent = { enable = true },
     }
   end,

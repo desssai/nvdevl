@@ -10,7 +10,7 @@ local plugin ={
   },
   event = "VeryLazy",
   config = function()
-    require("noice").setup {
+    require "noice".setup {
       lsp = {
         override = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -28,8 +28,7 @@ local plugin ={
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
-  
-  }
+    }
   end,
 }
 

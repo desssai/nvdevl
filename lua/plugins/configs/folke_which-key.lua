@@ -2,10 +2,10 @@ local plugin = {
   "folke/which-key.nvim",
   event = { "VeryLazy" },
   init = function()
-    require("core.mappings").set "mappings.folke_which-key"
+    require "core.mappings".set "mappings.folke_which-key"
   end,
   config = function()
-    require("which-key").setup {
+    require "which-key".setup {
       plugins = {
         marks = true, -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode

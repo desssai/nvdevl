@@ -13,7 +13,7 @@ local g = vim.g
 -------------------------------------- options ------------------------------------------
 
 -- Global statusline
-opt.laststatus = 3 
+opt.laststatus = 3
 opt.showmode = false
 
 opt.clipboard = "unnamedplus"
@@ -75,5 +75,5 @@ for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
 end
 
 -- add binaries installed by mason.nvim to path
--- local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
--- vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
+local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH

@@ -6,7 +6,7 @@ local plugin = {
     require "core.mappings".set "mappings.nvim-telescope_telescope"
   end,
   config = function()
-    require("telescope").setup{
+    require "telescope".setup{
       defaults = {
         vimgrep_arguments = {
           "rg",
@@ -56,7 +56,7 @@ local plugin = {
           n = { ["x"] = require("telescope.actions").close },
         },
       },
-      -- extensions_list = { "noice" },
+      extensions_list = { "noice" },
       -- extensions_list = { "themes", "terms", "noice" },
     }
   end

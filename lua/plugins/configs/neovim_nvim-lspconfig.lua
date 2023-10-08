@@ -6,7 +6,7 @@ local plugin = {
     local on_attach = function(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
       client.server_capabilities.documentRangeFormattingProvider = false
-      require("core.mappings").set ("mappings.neovim_nvim-lspconfig", { buffer = bufnr })
+      require "core.mappings".set ("mappings.neovim_nvim-lspconfig", bufnr )
     end
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -53,7 +53,7 @@ local plugin = {
       }
     end
 
-    require("lspconfig").lua_ls.setup {
+    require "lspconfig".lua_ls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
 

@@ -11,7 +11,7 @@ local plugin = {
     require "core.mappings".set "mappings.nvim-neo-tree_neo-tree"
   end,
   config = function()
-    require("neo-tree").setup({
+    require "neo-tree".setup {
       close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
       popup_border_style = "rounded",
       enable_git_status = true,
@@ -111,8 +111,8 @@ local plugin = {
           nowait = true,
         },
         mappings = {
-          ["<space>"] = { 
-              "toggle_node", 
+          ["<space>"] = {
+              "toggle_node",
               nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
           },
           ["<2-LeftMouse>"] = "open",
@@ -133,7 +133,7 @@ local plugin = {
           -- ['C'] = 'close_all_subnodes',
           ["z"] = "close_all_nodes",
           --["Z"] = "expand_all_nodes",
-          ["a"] = { 
+          ["a"] = {
             "add",
             -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
             -- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -230,7 +230,7 @@ local plugin = {
             ["<C-p>"] = "move_cursor_up",
           },
         },
-    
+
         commands = {} -- Add a custom command or override a global one using the same function name
       },
       buffers = {
@@ -277,9 +277,8 @@ local plugin = {
           }
         }
       }
-    })
+    }
   end
 }
 
 return plugin
-

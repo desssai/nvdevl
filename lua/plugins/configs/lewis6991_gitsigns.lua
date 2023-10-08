@@ -17,7 +17,7 @@ local plugin = {
     })
   end,
   config = function()
-    require("gitsigns").setup {
+    require "gitsigns".setup {
       signs = {
         add = { text = "│" },
         change = { text = "│" },
@@ -29,7 +29,7 @@ local plugin = {
 
       -- Load custom mappings
       on_attach = function(bufnr)
-        require("core.mappings").set "mappings.lewis6991_gitsigns"
+        require "core.mappings".set ("mappings.lewis6991_gitsigns", bufnr)
       end,
     }
   end,
