@@ -39,10 +39,10 @@ local plugin = {
       "clangd",
       "bashls", -- Bash LSP
       "dockerls", -- Docker LSP
-      "docker-compose-language-service", -- Docker-Compose LSP
+      -- "docker-compose-language-service", -- Docker-Compose LSP
       "gopls", -- Go LSP
       "marksman", -- Markdown LSP
-      "typescript-language-server", -- TS & JS LSP
+      -- "typescript-language-server", -- TS & JS LSP
     }
 
     local lspconfig = require "lspconfig"

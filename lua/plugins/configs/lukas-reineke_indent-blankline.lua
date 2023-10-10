@@ -13,6 +13,9 @@ local plugin = {
         show_start = false,
         show_end = false,
         highlight = { "Nontext" },
+        include = {
+          node_type = { ["*"]  = { "*" } },
+        }
       },
       exclude = {
         filetypes = {

@@ -13,7 +13,8 @@ local plugins = {
   -- UI elements
   require "plugins.configs.folke_noice",
   require "plugins.configs.folke_zen-mode",
-  require "plugins.configs.folke_tokyonight",
+  require "plugins.configs.catpuccin_nvim",
+  require "plugins.configs.nvim-lualine_lualine",
   require "plugins.configs.lukas-reineke_indent-blankline",
 
   -- Workflow

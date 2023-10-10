@@ -21,11 +21,11 @@ local plugin = {
       return {
         { "┌", hl_name },
         { "─", hl_name },
-        { "╮", hl_name },
+        { "┐", hl_name },
         { "│", hl_name },
-        { "╯", hl_name },
+        { "┘", hl_name },
         { "─", hl_name },
-        { "╰", hl_name },
+        { "└", hl_name },
         { "│", hl_name },
       }
     end
@@ -73,9 +73,10 @@ local plugin = {
       window = {
         completion = {
           side_padding = 1,
-          winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
           scrollbar = false,
+          scrolloff = 1,
           border = border "CmpDocBorder",
+          winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:PmenuSel",
         },
         documentation = {
           border = border "CmpDocBorder",
@@ -97,7 +98,6 @@ local plugin = {
 	          buffer = "[Buffer]",
 	          cmdline = "[CmdLine]",
 	          luasnip = "[LuaSnip]",
-            latex_symbols = "[LaTeX]",
           })[entry.source.name]
           return item
         end,
@@ -110,30 +110,30 @@ local plugin = {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "nvim_lua" },
-        -- { name = "path" },
-        -- { name = "cmdline" },
+        { name = "path" },
+        { name = "cmdline" },
       },
     }
 
-    cmp.setup.cmdline('/', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer' }
-      },
-    })
+    -- cmp.setup.cmdline('/', {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = {
+    --     { name = 'buffer' }
+    --   },
+    -- })
 
-    cmp.setup.cmdline(':', {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
-        {
-          name = 'path',
-        },
-        {
-          name = 'cmdline',
-          option = { ignore_cmds = { 'Man', '!' } },
-        },
-      })
-    })
+    -- cmp.setup.cmdline(':', {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = cmp.config.sources({
+    --     {
+    --       name = 'path',
+    --     },
+    --     {
+    --       name = 'cmdline',
+    --       option = { ignore_cmds = { 'Man', '!' } },
+    --     },
+    --   })
+    -- })
   end,
 }
 return plugin

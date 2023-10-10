@@ -27,17 +27,17 @@ local mappings = {
     ["<leader>j"] = { "<C-w>j", "Window down" },
     ["<leader>k"] = { "<C-w>k", "Window up" },
 
-    -- File save, save & quit, copy
-    ["<C-w>"] = { "<cmd> w <CR>", "Save file" },
-    ["<C-q>"] = { "<cmd> q! <CR>", "Save file" },
-    ["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
-
     -- Toggle Line Numbers
     ["<leader>nn"] = { "<cmd> set nu! <CR>", "Toggle line number" },
     ["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- Buffer Management
-    ["n"] = { "<cmd> enew <CR>", "New buffer" },
+    -- ["n"] = { "<cmd> enew <CR>", "New buffer" },
+    ["<C-w>"] = { "<cmd> w <CR>", "Save buffer" },
+    -- ["<C-q>"] = { "<cmd> bn <CR> <cmd> bd!# <CR>", "Exit buffer" },
+    ["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole buffer" },
+    ["<tab>"] = {"<cmd> bn <CR>", "Next buffer"},
+    ["<S-tab>"] = {"<cmd> bp <CR>", "Previous buffer"},
 
     -- Window Management
     ["zx"] = { ":close<CR>", "Close current window" },
@@ -57,7 +57,7 @@ local mappings = {
   },
 
   t = {
-    ["<C-x>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    ["<C-q>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
   },
 
   x = {

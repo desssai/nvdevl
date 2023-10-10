@@ -1,17 +1,6 @@
 local opt = vim.opt
 local g = vim.g
 
--- local config = require("core.utils").load_config()
-
--------------------------------------- globals -----------------------------------------
-
--- g.nvchad_theme = config.ui.theme
--- g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
--- g.toggle_theme_icon = "   "
--- g.transparency = config.ui.transparency
-
--------------------------------------- options ------------------------------------------
-
 -- Global statusline
 opt.laststatus = 3
 opt.showmode = false
@@ -71,7 +60,7 @@ g.mapleader = " "
 
 -- disable some default providers
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
+  g["loaded_" .. provider .. "_provider"] = 0
 end
 
 -- add binaries installed by mason.nvim to path

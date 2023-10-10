@@ -12,20 +12,13 @@ local plugin = {
       ---Ignore blank lines
       ignore = '^$',
 
-      -- Add a comment at the end of line
-      extra = {
-        eol = '<leader>ca',
-      },
-
       -- The plugin won't create any mappings by itself
       mappings = {
         basic = false,
-        extra = true,
+        extra = false,
     },
   }
   end,
 }
 
 return plugin
-
-
