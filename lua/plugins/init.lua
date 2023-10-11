@@ -6,9 +6,9 @@ local plugins = {
   require "plugins.configs.nvim-treesitter_treesitter",
 
   -- Lsp features
-  require "plugins.configs.hrsh7th_nvim-cmp",
   require "plugins.configs.williamboman_mason",
   require "plugins.configs.neovim_nvim-lspconfig",
+  require "plugins.configs.hrsh7th_nvim-cmp",
 
   -- UI elements
   require "plugins.configs.folke_noice",

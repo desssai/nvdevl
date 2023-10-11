@@ -61,6 +61,18 @@ local plugin = {
     local cmp = require("cmp")
 
     cmp.setup {
+      snippet = {
+        expand = function(args)
+          require "luasnip".lsp_expand(args.body)
+        end,
+      },
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "nvim_lua" },
+        { name = "path" },
+      },
       view = {
         entries = {
           name = 'custom',
@@ -68,7 +80,7 @@ local plugin = {
         },
       },
       completion = {
-        completeopt = "menu,menuone",
+        completeopt = "menu,menuone,noselect",
       },
       window = {
         completion = {
@@ -83,10 +95,6 @@ local plugin = {
           winhighlight = "Normal:CmpDoc",
         },
       },
-      snippet = {
-        expand = function(args) require "luasnip".lsp_expand(args.body) end,
-      },
-
       formatting = {
         fields = { "abbr", "kind", "menu" },
         format = function(entry, item)
@@ -96,44 +104,32 @@ local plugin = {
 	          nvim_lsp = "[Lsp]",
 	          nvim_lua = "[Lua]",
 	          buffer = "[Buffer]",
-	          cmdline = "[CmdLine]",
+	          cmdline = "[Cmd]",
 	          luasnip = "[LuaSnip]",
           })[entry.source.name]
           return item
         end,
       },
-
       mapping = require "mappings.hrsh7th_nvim-cmp",
-
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "nvim_lua" },
-        { name = "path" },
-        { name = "cmdline" },
-      },
     }
 
-    -- cmp.setup.cmdline('/', {
-    --   mapping = cmp.mapping.preset.cmdline(),
-    --   sources = {
-    --     { name = 'buffer' }
-    --   },
-    -- })
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ '/', '?' }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer' }
+      }
+    })
 
-    -- cmp.setup.cmdline(':', {
-    --   mapping = cmp.mapping.preset.cmdline(),
-    --   sources = cmp.config.sources({
-    --     {
-    --       name = 'path',
-    --     },
-    --     {
-    --       name = 'cmdline',
-    --       option = { ignore_cmds = { 'Man', '!' } },
-    --     },
-    --   })
-    -- })
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
+      })
+    })
   end,
 }
 return plugin

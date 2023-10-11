@@ -1,6 +1,9 @@
 local plugin = {
   "nvim-telescope/telescope.nvim",
-  dependencies = "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    { "nvim-treesitter/nvim-treesitter"},
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  },
   cmd = "Telescope",
   init = function()
     require "core.mappings".set "mappings.nvim-telescope_telescope"
@@ -44,7 +47,8 @@ local plugin = {
         path_display = { "truncate" },
         winblend = 0,
         border = true,
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+
         color_devicons = true,
         set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
