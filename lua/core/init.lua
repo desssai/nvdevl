@@ -5,7 +5,10 @@ local g = vim.g
 opt.laststatus = 3
 opt.showmode = false
 
+-- Options for nvim behaviour
 opt.clipboard = "unnamedplus"
+opt.backspace = "indent,eol,start"
+opt.iskeyword:append("-")
 
 -- Indenting
 opt.expandtab = true
@@ -29,7 +32,7 @@ opt.numberwidth = 2
 opt.ruler = false
 
 -- Disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 -- Additional info column for plugins
 opt.signcolumn = "yes"
@@ -54,14 +57,14 @@ opt.updatetime = 250
 
 -- Go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append("<>[]hl")
 
 g.mapleader = " "
 
 -- Disable some default providers
-for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
-  g["loaded_" .. provider .. "_provider"] = 0
+for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
+	g["loaded_" .. provider .. "_provider"] = 0
 end
 
 -- Add binaries instaled by Mason for LSP functionality
-vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. ":" .. vim.env.PATH
+vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin" .. ":" .. vim.env.PATH
