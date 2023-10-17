@@ -1,6 +1,6 @@
 local plugin = {
 	"nvimtools/none-ls.nvim",
-	event = { "BufRead", "BufWinEnter", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local null_ls = require("null-ls")
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

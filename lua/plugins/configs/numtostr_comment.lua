@@ -1,10 +1,8 @@
 local plugin = {
 	"numToStr/Comment.nvim",
-	cmd = { "Comment" },
-	init = function()
-		require("core.mappings").set("mappings.numtostr_comment")
-	end,
+	event = { "BufReadPre", "InsertEnter" },
 	config = function()
+		require("core.mappings").set("mappings.numtostr_comment")
 		require("Comment").setup({
 			padding = true,
 			sticky = true,

@@ -1,12 +1,26 @@
 local plugin = {
 	"nvim-lualine/lualine.nvim",
-	event = { "BufRead", "BufWinEnter", "BufNewFile" },
+	event = { "BufReadPre", "BufWinEnter", "BufNewFile" },
 	config = function()
+		local dbui = {
+			sections = {
+				lualine_a = { "mode" },
+				lualine_b = { "filename" },
+				lualine_c = { "" },
+				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
+			},
+			filetypes = { "dbui" },
+		}
+
 		require("lualine").setup({
 			options = {
 				theme = "catppuccin",
 				icons_enabled = true,
 				-- theme = 'auto',
+				-- section_separators = { left = "", right = "" },
+				-- component_separators = { left = "", right = "" },
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
@@ -40,13 +54,10 @@ local plugin = {
 				lualine_y = {},
 				lualine_z = {},
 			},
-			tabline = {
-				lualine_a = { "buffers" },
-				lualine_z = { "datetime" },
-			},
-			-- winbar = {}
+			-- tabline = {},
+			-- winbar = {},
 			-- inactive_winbar = {},
-			extensions = { "lazy" }, -- nvim-dap-ui, neo-tree, trouble, toggleterm
+			extensions = { "lazy", "neo-tree", dbui }, -- nvim-dap-ui, trouble, toggleterm
 		})
 	end,
 }

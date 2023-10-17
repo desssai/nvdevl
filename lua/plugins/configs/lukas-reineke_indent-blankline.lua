@@ -1,6 +1,6 @@
 local plugin = {
 	"lukas-reineke/indent-blankline.nvim",
-	event = { "BufRead", "BufWinEnter", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("ibl").setup({
 			enabled = true,

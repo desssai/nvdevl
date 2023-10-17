@@ -32,7 +32,7 @@ local mappings = {
 		["<leader>nr"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
 		-- Buffer Management
-		-- ["n"] = { "<cmd> enew <CR>", "New buffer" },
+		["<C-n>"] = { "<cmd> enew <CR>", "New buffer" },
 		["<C-w>"] = { "<cmd> w <CR>", "Save buffer" },
 		-- ["<C-q>"] = { "<cmd> bn <CR> <cmd> bd!# <CR>", "Exit buffer" },
 		["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole buffer" },
@@ -40,7 +40,7 @@ local mappings = {
 		["<S-tab>"] = { "<cmd> bp <CR>", "Previous buffer" },
 
 		-- Window Management
-		["zx"] = { ":close<CR>", "Close current window" },
+		["<leader>wq"] = { ":close<CR>", "Close current window" },
 		["<leader>v"] = { "<C-w>v", "Split windows vertically" },
 		["<leader>x"] = { "<C-w>s", "Split windows horizontally" },
 		["<leader>b"] = { "<C-w>=", "Balance open windows" },
@@ -52,8 +52,8 @@ local mappings = {
 
 	v = {
 		-- Lines Movement
-		["<∆>"] = { ":m '>+1<CR>gv=gv", "Move selected lines down" },
-		["<˚>"] = { ":m '<-2<CR>gv=gv", "Move selected lines up" },
+		["∆"] = { ":m '>+1<CR>gv=gv", "Move selected lines down" },
+		["˚"] = { ":m '<-2<CR>gv=gv", "Move selected lines up" },
 	},
 
 	t = {

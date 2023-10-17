@@ -1,6 +1,6 @@
 local plugin = {
 	"hrsh7th/nvim-cmp",
-	event = "InsertEnter",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 
 		require("plugins.configs.l3m0n4d3_luasnip"),
@@ -68,10 +68,10 @@ local plugin = {
 				end,
 			},
 			sources = {
-				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "buffer" },
 				{ name = "nvim_lua" },
+				{ name = "nvim_lsp" },
+				{ name = "buffer" },
 				{ name = "path" },
 			},
 			view = {

@@ -1,6 +1,6 @@
 local mappings = {
 	n = {
-		["<leader>m"] = { "<cmd> ZenMode <CR>", "Which-key all keymaps" },
+		["<leader>m"] = { "<cmd> ZenMode <CR>", "Toggle zen-mode" },
 	},
 }
 

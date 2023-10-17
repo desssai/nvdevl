@@ -1,12 +1,11 @@
 local plugin = {
 	"neovim/nvim-lspconfig",
-	event = { "BufRead", "BufWinEnter", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lspconfig = require("lspconfig")
 		local lsp_defaults = lspconfig.util.default_config
 
-		lsp_defaults.capabilities =
-			vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+		lsp_defaults.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		local on_attach = function(client, bufnr)
 			client.server_capabilities.documentFormattingProvider = false
@@ -16,31 +15,31 @@ local plugin = {
 			--   signature_setup(client)
 			-- end
 
-			if client.supports_method("textDocument/semanticTokens") then
-				client.server_capabilities.semanticTokensProvider = nil
-			end
+			-- if client.supports_method("textDocument/semanticTokens") then
+			-- 	client.server_capabilities.semanticTokensProvider = nil
+			-- end
 
 			require("core.mappings").set("mappings.neovim_nvim-lspconfig", bufnr)
 		end
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.completion.completionItem = {
-			documentationFormat = { "markdown", "plaintext" },
-			snippetSupport = true,
-			preselectSupport = true,
-			insertReplaceSupport = true,
-			labelDetailsSupport = true,
-			deprecatedSupport = true,
-			commitCharactersSupport = true,
-			tagSupport = { valueSet = { 1 } },
-			resolveSupport = {
-				properties = {
-					"documentation",
-					"detail",
-					"additionalTextEdits",
-				},
-			},
-		}
+		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+		-- capabilities.textDocument.completion.completionItem = {
+		-- 	documentationFormat = { "markdown", "plaintext" },
+		-- 	snippetSupport = true,
+		-- 	preselectSupport = true,
+		-- 	insertReplaceSupport = true,
+		-- 	labelDetailsSupport = true,
+		-- 	deprecatedSupport = true,
+		-- 	commitCharactersSupport = true,
+		-- 	tagSupport = { valueSet = { 1 } },
+		-- 	resolveSupport = {
+		-- 		properties = {
+		-- 			"documentation",
+		-- 			"detail",
+		-- 			"additionalTextEdits",
+		-- 		},
+		-- 	},
+		-- }
 
 		local servers = {
 			"html",
@@ -49,7 +48,6 @@ local plugin = {
 			"bashls", -- Bash LSP
 			-- "dockerls", -- Docker LSP
 			-- "docker-compose-language-service", -- Docker-Compose LSP
-			"gopls", -- Go LSP
 			"marksman", -- Markdown LSP
 			-- "typescript-language-server", -- TS & JS LSP
 		}
@@ -82,6 +80,20 @@ local plugin = {
 				capabilities = lsp_defaults.capabilities,
 			})
 		end
+
+		lspconfig["gopls"].setup({
+			on_attach = on_attach,
+			capabilities = lsp_defaults.capabilities,
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
+					analyses = {
+						unusedparams = true,
+					},
+				},
+			},
+		})
 	end,
 }
 

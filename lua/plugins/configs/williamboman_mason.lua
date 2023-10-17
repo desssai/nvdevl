@@ -25,7 +25,8 @@ local ensure_installed = {
 	"prettier", -- HTML, CSS, JS Formatting
 	"sqlfmt", -- SQL Formatting
 
-	-- DEBUGGINF
+	-- DEBUGGING
+	"delve", -- Go Debug server
 	-- "codelldb", -- C, C++ Debugger
 }
 
@@ -35,8 +36,8 @@ local plugin = {
 		"Mason",
 		"MasonLog",
 		"MasonInstall",
-		"MasonUninstall",
 		"MasonInstallAll",
+		"MasonUninstall",
 		"MasonUninstallAll",
 	},
 	config = function()
@@ -44,8 +45,8 @@ local plugin = {
 			ui = {
 				icons = {
 					package_pending = " ",
-					package_installed = "󰄳 ",
-					package_uninstalled = " 󰚌",
+					package_installed = " ",
+					package_uninstalled = " ",
 				},
 
 				keymaps = {

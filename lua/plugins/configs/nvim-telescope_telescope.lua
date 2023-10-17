@@ -60,7 +60,6 @@ local plugin = {
 					n = { ["q"] = require("telescope.actions").close },
 				},
 			},
-			extensions_list = { "noice" },
 			-- extensions_list = { "themes", "terms", "noice" },
 		})
 	end,

@@ -2,7 +2,7 @@ local plugin = {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-	event = { "BufRead", "BufWinEnter", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			ensure_installed = {
