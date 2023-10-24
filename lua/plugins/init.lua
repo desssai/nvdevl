@@ -3,6 +3,7 @@ local plugins = {
 	-- Utilities
 	require("plugins.configs.folke_noice"),
 	require("plugins.configs.folke_which-key"),
+	require("plugins.configs.famiu_bufdelete"),
 	require("plugins.configs.numtostr_comment"),
 	require("plugins.configs.nvim-treesitter_treesitter"),
 
@@ -20,7 +21,7 @@ local plugins = {
 	require("plugins.configs.lukas-reineke_indent-blankline"),
 
 	-- Workflow
-	-- require("plugins.configs.folke_trouble"),
+	require("plugins.configs.folke_trouble"),
 	require("plugins.configs.lewis6991_gitsigns"),
 	require("plugins.configs.leoluz_nvim-dap-go"),
 	require("plugins.configs.rcarriga_nvim-dap-ui"),

@@ -2,7 +2,7 @@ local mappings = {
 
 	i = {
 		-- Go to  beginning and end
-		["<C-s>"] = { "<ESC>^i", "Beginning of line" },
+		["<C-a>"] = { "<ESC>^i", "Beginning of line" },
 		["<C-e>"] = { "<End>", "End of line" },
 
 		-- Leave insert mode
@@ -34,7 +34,6 @@ local mappings = {
 		-- Buffer Management
 		["<C-n>"] = { "<cmd> enew <CR>", "New buffer" },
 		["<C-w>"] = { "<cmd> w <CR>", "Save buffer" },
-		-- ["<C-q>"] = { "<cmd> bn <CR> <cmd> bd!# <CR>", "Exit buffer" },
 		["<C-y>"] = { "<cmd> %y+ <CR>", "Copy whole buffer" },
 		["<tab>"] = { "<cmd> bn <CR>", "Next buffer" },
 		["<S-tab>"] = { "<cmd> bp <CR>", "Previous buffer" },

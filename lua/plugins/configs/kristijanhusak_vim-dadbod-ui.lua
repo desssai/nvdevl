@@ -14,7 +14,7 @@ local plugin = {
 		require("core.mappings").set("mappings.kristijanhusak_vim-dadbod-ui")
 		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1
-		vim.g.db_ui_winwidth = 80
+		vim.g.db_ui_winwidth = 40
 		vim.g.db_ui_show_database_icon = 1
 	end,
 }
