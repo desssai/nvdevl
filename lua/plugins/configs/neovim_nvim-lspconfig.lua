@@ -11,35 +11,8 @@ local plugin = {
 			client.server_capabilities.documentFormattingProvider = false
 			client.server_capabilities.documentRangeFormattingProvider = false
 
-			-- if client.server_capabilities.signatureHelpProvider then
-			--   signature_setup(client)
-			-- end
-
-			-- if client.supports_method("textDocument/semanticTokens") then
-			-- 	client.server_capabilities.semanticTokensProvider = nil
-			-- end
-
 			require("core.mappings").set("mappings.neovim_nvim-lspconfig", bufnr)
 		end
-
-		-- local capabilities = vim.lsp.protocol.make_client_capabilities()
-		-- capabilities.textDocument.completion.completionItem = {
-		-- 	documentationFormat = { "markdown", "plaintext" },
-		-- 	snippetSupport = true,
-		-- 	preselectSupport = true,
-		-- 	insertReplaceSupport = true,
-		-- 	labelDetailsSupport = true,
-		-- 	deprecatedSupport = true,
-		-- 	commitCharactersSupport = true,
-		-- 	tagSupport = { valueSet = { 1 } },
-		-- 	resolveSupport = {
-		-- 		properties = {
-		-- 			"documentation",
-		-- 			"detail",
-		-- 			"additionalTextEdits",
-		-- 		},
-		-- 	},
-		-- }
 
 		local servers = {
 			"html",

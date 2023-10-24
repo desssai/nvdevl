@@ -6,25 +6,25 @@ local mappings = {
 			end,
 			"LSP hover",
 		},
-		["sD"] = {
+		["gD"] = {
 			function()
 				vim.lsp.buf.declaration()
 			end,
 			"LSP declaration",
 		},
-		["sd"] = {
+		["gd"] = {
 			function()
 				vim.lsp.buf.definition()
 			end,
 			"LSP definition",
 		},
-		["si"] = {
+		["gi"] = {
 			function()
 				vim.lsp.buf.implementation()
 			end,
 			"LSP implementation",
 		},
-		["sr"] = {
+		["gr"] = {
 			function()
 				vim.lsp.buf.references()
 			end,
