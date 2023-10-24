@@ -12,6 +12,7 @@ local plugin = {
 				"vimdoc", -- Mandatory TS package
 				"query", -- Mandatory TS package
 				"bash",
+				"regex",
 				"css",
 				"csv",
 				"html",
@@ -24,6 +25,7 @@ local plugin = {
 				"go",
 				"json",
 				"markdown",
+				"markdown_inline",
 				"sql",
 			},
 

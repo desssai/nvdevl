@@ -1,12 +1,12 @@
 local mappings = {
 	n = {
-		["<leader>dg"] = {
+		["<leader>dgt"] = {
 			function()
 				require("dap-go").debug_test()
 			end,
 			"Debug current Go test",
 		},
-		["<leader>dr"] = {
+		["<leader>dgl"] = {
 			function()
 				require("dap-go").debug_last()
 			end,

@@ -8,7 +8,7 @@ local plugin = {
 			local dap = require("dap")
 			local dapui = require("dapui")
 
-			require("dapui").setup()
+			dapui.setup()
 
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open()

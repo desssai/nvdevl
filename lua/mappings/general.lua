@@ -17,6 +17,9 @@ local mappings = {
 		-- Clear search highlights
 		["<Esc>"] = { ":noh <CR>", "Clear search highlights" },
 
+		-- Rename word under cursor
+		["<leader>rn"] = { ":%s/<C-r><C-w>//g<Left><Left>", "Rename references of word under cursor in current buffer" },
+
 		-- Go to  beginning and end
 		["<C-a>"] = { "<ESC>^i", "Beginning of line" },
 		["<C-e>"] = { "<End>i", "End of line" },
@@ -39,7 +42,7 @@ local mappings = {
 		["<S-tab>"] = { "<cmd> bp <CR>", "Previous buffer" },
 
 		-- Window Management
-		["<leader>wq"] = { ":close<CR>", "Close current window" },
+		["<leader>wq"] = { "<cmd> close <CR>", "Close current window" },
 		["<leader>v"] = { "<C-w>v", "Split windows vertically" },
 		["<leader>x"] = { "<C-w>s", "Split windows horizontally" },
 		["<leader>b"] = { "<C-w>=", "Balance open windows" },
@@ -53,6 +56,12 @@ local mappings = {
 		-- Lines Movement
 		["∆"] = { ":m '>+1<CR>gv=gv", "Move selected lines down" },
 		["˚"] = { ":m '<-2<CR>gv=gv", "Move selected lines up" },
+
+		-- Rename word under cursor
+		["<leader>rn"] = {
+			":s/<C-r><C-w>//g<Left><Left>",
+			"Rename references of word under selection start in selection",
+		},
 	},
 
 	t = {
