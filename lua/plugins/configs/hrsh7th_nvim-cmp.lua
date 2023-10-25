@@ -18,18 +18,18 @@ local plugin = {
 	},
 
 	config = function()
-		local function border(hl_name)
-			return {
-				{ "┌", hl_name },
-				{ "─", hl_name },
-				{ "┐", hl_name },
-				{ "│", hl_name },
-				{ "┘", hl_name },
-				{ "─", hl_name },
-				{ "└", hl_name },
-				{ "│", hl_name },
-			}
-		end
+		-- local function border(hl_name)
+		-- 	return {
+		-- 		{ "┌", hl_name },
+		-- 		{ "─", hl_name },
+		-- 		{ "┐", hl_name },
+		-- 		{ "│", hl_name },
+		-- 		{ "┘", hl_name },
+		-- 		{ "─", hl_name },
+		-- 		{ "└", hl_name },
+		-- 		{ "│", hl_name },
+		-- 	}
+		-- end
 
 		local cmp_kinds = {
 			Text = "  ",
@@ -88,12 +88,12 @@ local plugin = {
 					side_padding = 1,
 					scrollbar = false,
 					scrolloff = 1,
-					border = border("CmpDocBorder"),
-					winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:PmenuSel",
+					border = nil,
+					winhighlight = "Normal:NormalFloat,CursorLine:lualine_a_normal,FloatBorder:FloatBorder",
 				},
 				documentation = {
-					border = border("CmpDocBorder"),
-					winhighlight = "Normal:CmpDoc",
+					border = nil,
+					winhighlight = "Normal:FloatBorder",
 				},
 			},
 			formatting = {
@@ -101,13 +101,22 @@ local plugin = {
 				format = function(entry, item)
 					item.kind = (cmp_kinds[item.kind] or "") .. item.kind
 					item.menu = ({
-						path = "[Path]",
-						nvim_lsp = "[Lsp]",
-						nvim_lua = "[Lua]",
-						buffer = "[Buffer]",
-						cmdline = "[Cmd]",
-						luasnip = "[LuaSnip]",
+						path = "Path",
+						nvim_lsp = "Lsp",
+						nvim_lua = "Lua",
+						buffer = "Buffer",
+						cmdline = "Command",
+						luasnip = "Snippet",
 					})[entry.source.name]
+
+					local len = string.len(item.abbr .. item.kind .. item.menu)
+
+					if len > 62 then
+						item.abbr = item.abbr:sub(62 - string.len(item.kind .. item.menu))
+					elseif len < 62 then
+						item.abbr = item.abbr .. string.rep(" ", 62 - len, "")
+					end
+
 					return item
 				end,
 			},
