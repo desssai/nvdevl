@@ -111,10 +111,10 @@ local plugin = {
 
 					local len = string.len(item.abbr .. item.kind .. item.menu)
 
-					if len > 62 then
-						item.abbr = item.abbr:sub(62 - string.len(item.kind .. item.menu))
-					elseif len < 62 then
-						item.abbr = item.abbr .. string.rep(" ", 62 - len, "")
+					if len > 58 then
+						item.abbr = item.abbr:sub(58 - string.len(item.kind .. item.menu))
+					elseif len < 58 then
+						item.abbr = item.abbr .. string.rep(" ", 58 - len, "")
 					end
 
 					return item

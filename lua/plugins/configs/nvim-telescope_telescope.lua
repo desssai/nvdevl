@@ -57,7 +57,11 @@ local plugin = {
 				-- Developer configurations: Not meant for general override
 				buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 				mappings = {
-					n = { ["q"] = require("telescope.actions").close },
+					n = {
+						["q"] = require("telescope.actions").close,
+						["<C-d>"] = require("telescope.actions").preview_scrolling_down,
+						["<C-f>"] = require("telescope.actions").preview_scrolling_up,
+					},
 				},
 			},
 			-- extensions_list = { "themes", "terms", "noice" },
